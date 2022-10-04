@@ -3,7 +3,7 @@ using System.Diagnostics;
 namespace Sharpy.Core.Processor
 {
     [DebuggerDisplay($"{{{nameof(DebuggerDisplay)}(),nq}}")]
-    public class ValueResult<ValueType> : Result
+    public class ValueResult<ValueType> : Result<ValueType>
     {
         public ValueType Value { get; init; }
 
@@ -19,9 +19,6 @@ namespace Sharpy.Core.Processor
 
         private string DebuggerDisplay => ToString();
 
-        public IEnumerable<Result> ToEnumerable()
-        {
-            yield return this;
-        }
+        public ValueType Evaluate() => Value;
     }
 }

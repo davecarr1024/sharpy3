@@ -1,11 +1,7 @@
-using System.Collections;
-using System.Diagnostics;
-using System.Text;
-
 namespace Sharpy.Core.Processor
 {
-    public interface Result
+    public interface Result<ValueType>
     {
-        IEnumerable<Result> ToEnumerable();
+        ValueType Evaluate();
     }
 }
