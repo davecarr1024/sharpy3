@@ -10,16 +10,6 @@ namespace Sharpy.Core.Processor
 
         public Result(IReadOnlyList<Result> children) => Children = children;
 
-        public IList<Result> AsList()
-        {
-            List<Result> results = new List<Result> { this };
-            foreach (Result child in Children)
-            {
-                results.AddRange(child.AsList());
-            }
-            return results;
-        }
-
         protected virtual string ToStringLine() => "Result()";
 
         private string ToString(int indent)
