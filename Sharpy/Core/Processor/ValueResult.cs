@@ -1,5 +1,8 @@
+using System.Diagnostics;
+
 namespace Sharpy.Core.Processor
 {
+    [DebuggerDisplay($"{{{nameof(GetDebuggerDisplay)}(),nq}}")]
     public class ValueResult<ValueType> : Result
     {
         public ValueType Value { get; init; }
@@ -8,7 +11,10 @@ namespace Sharpy.Core.Processor
 
         public ValueResult(ValueType value, IReadOnlyList<Result> children) : base(children) => Value = value;
 
-        protected override string ToStringLine() => string.Format("ValueResult({0})", Value);
+        public override string ToString()
+        {
+            return string.Format("ValueResult(Value='{0}',Children=[{1}])", Value, string.Join(", ", Children));
+        }
 
         public override bool Equals(object? obj)
         {
@@ -20,6 +26,11 @@ namespace Sharpy.Core.Processor
         public override int GetHashCode()
         {
             return HashCode.Combine(base.GetHashCode(), Value);
+        }
+
+        private string GetDebuggerDisplay()
+        {
+            return ToString();
         }
     }
 }

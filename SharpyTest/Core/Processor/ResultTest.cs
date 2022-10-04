@@ -24,6 +24,10 @@ public class ResultTest
             new Result(new List<Result> { }).ToEnumerable(),
             new Result(new List<Result> { }).ToEnumerable()
         );
+        Assert.AreEqual(
+            new Result(new List<Result> { }),
+            new Result(new List<Result> { })
+        );
     }
 
     [Test]

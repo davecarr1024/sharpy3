@@ -1,7 +1,10 @@
+using System.Collections;
+using System.Diagnostics;
 using System.Text;
 
 namespace Sharpy.Core.Processor
 {
+    [DebuggerDisplay($"{{{nameof(GetDebuggerDisplay)}(),nq}}")]
     public class Result
     {
         public IReadOnlyList<Result> Children { get; init; }
@@ -10,24 +13,9 @@ namespace Sharpy.Core.Processor
 
         public Result(IReadOnlyList<Result> children) => Children = children;
 
-        protected virtual string ToStringLine() => "Result()";
-
-        private string ToString(int indent)
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.Append("\n");
-            sb.Insert(0, "  ", indent);
-            sb.Append(ToStringLine());
-            foreach (Result child in Children)
-            {
-                sb.Append(child.ToString(indent + 1));
-            }
-            return sb.ToString();
-        }
-
         public override string ToString()
         {
-            return ToString(0);
+            return string.Format("Result(children=[{0}])", string.Join(", ", Children));
         }
 
         public IEnumerable<Result> ToEnumerable()
@@ -44,13 +32,17 @@ namespace Sharpy.Core.Processor
 
         public override bool Equals(object? obj)
         {
-            return obj is Result result &&
-            Children.SequenceEqual(result.Children);
+            return obj is Result result && Children.SequenceEqual(result.Children);
         }
 
         public override int GetHashCode()
         {
             return HashCode.Combine(Children);
+        }
+
+        private string GetDebuggerDisplay()
+        {
+            return ToString();
         }
     }
 }
