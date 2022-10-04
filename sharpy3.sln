@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sharpy", "Sharpy\Sharpy.csproj", "{167B69AE-1D6F-42CA-A6D7-40ED1AFE7C4D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpyTest", "SharpyTest\SharpyTest.csproj", "{FDE84EE6-B529-4510-87F8-27BD9FC56DBB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpyTest", "SharpyTest\SharpyTest.csproj", "{0DC8ECE9-8B2F-4496-AECB-25971425C0EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,9 +20,9 @@ Global
 		{167B69AE-1D6F-42CA-A6D7-40ED1AFE7C4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{167B69AE-1D6F-42CA-A6D7-40ED1AFE7C4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{167B69AE-1D6F-42CA-A6D7-40ED1AFE7C4D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FDE84EE6-B529-4510-87F8-27BD9FC56DBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FDE84EE6-B529-4510-87F8-27BD9FC56DBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FDE84EE6-B529-4510-87F8-27BD9FC56DBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FDE84EE6-B529-4510-87F8-27BD9FC56DBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DC8ECE9-8B2F-4496-AECB-25971425C0EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DC8ECE9-8B2F-4496-AECB-25971425C0EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DC8ECE9-8B2F-4496-AECB-25971425C0EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DC8ECE9-8B2F-4496-AECB-25971425C0EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
