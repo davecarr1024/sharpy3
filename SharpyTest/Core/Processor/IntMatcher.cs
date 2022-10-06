@@ -1,6 +1,6 @@
 using Sharpy.Core.Processor;
 
-namespace SharpyTest.Core.Processor.IntMatcher
+namespace SharpyTest.Core.Processor
 {
     public record class IntMatcher : Processor<ImmutableList<int>, int>
     {

@@ -1,4 +1,4 @@
-namespace SharpyTest.Core.Processor.IntMatcher;
+namespace SharpyTest.Core.Processor;
 using Sharpy.Core.Processor;
 
 public record class Scope : Sharpy.Core.Processor.Scope<ImmutableList<int>, int>

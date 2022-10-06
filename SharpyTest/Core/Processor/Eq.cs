@@ -1,4 +1,4 @@
-namespace SharpyTest.Core.Processor.IntMatcher;
+namespace SharpyTest.Core.Processor;
 using Sharpy.Core.Errors;
 using Sharpy.Core.Processor;
 

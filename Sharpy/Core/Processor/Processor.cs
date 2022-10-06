@@ -1,5 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
-
 namespace Sharpy.Core.Processor;
 public record class Processor<State, Result> : Scope<State, Result>, Rule<State, Result>
 {
