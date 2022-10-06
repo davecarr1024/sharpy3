@@ -1,19 +1,29 @@
-namespace Sharpy.Core.Processor
+using System.Diagnostics.CodeAnalysis;
+
+namespace Sharpy.Core.Processor;
+public record class Processor<State, Result> : Scope<State, Result>, Rule<State, Result>
 {
-    public record class Processor<StateValue, ResultValue> : Rule<StateValue, ResultValue>
+    public Processor(string rootRuleName, IImmutableDictionary<string, Rule<State, Result>> rules)
+        : base(rules)
+        => RootRuleName = rootRuleName;
+
+    public string RootRuleName { get; init; }
+
+    public (State, Result) Apply(State state) => Apply(RootRuleName, state);
+
+    public (State, Result) Apply(string ruleName, State state) => Apply(this, ruleName, state);
+
+    public (State, Result) Apply(IScope<State, Result> scope, State state) => Apply(scope, RootRuleName, state);
+
+    public (State, Result) Apply(IScope<State, Result> scope, string ruleName, State state)
     {
-        public string RootRuleName { get; init; }
-
-        public IReadOnlyDictionary<string, Rule<StateValue, ResultValue>> Rules { get; init; }
-
-        public Processor(string rootRuleName, IReadOnlyDictionary<string, Rule<StateValue, ResultValue>> rules)
+        try
         {
-            RootRuleName = rootRuleName;
-            Rules = rules;
+            return Rules[ruleName].Apply(scope, state);
         }
-
-        public ResultAndState<StateValue, ResultValue> Apply(string ruleName, State<StateValue, ResultValue> state) => Rules[ruleName].Apply(state);
-
-        public ResultAndState<StateValue, ResultValue> Apply(State<StateValue, ResultValue> state) => Apply(RootRuleName, state);
+        catch (Errors.Error error)
+        {
+            throw new Errors.RuleError(ruleName, error);
+        }
     }
 }

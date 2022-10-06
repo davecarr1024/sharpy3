@@ -1,7 +1,6 @@
-namespace Sharpy.Core.Processor
+namespace Sharpy.Core.Processor;
+
+public interface Rule<State, Result>
 {
-    public interface Rule<StateValue, ResultValue>
-    {
-        public ResultAndState<StateValue, ResultValue> Apply(State<StateValue, ResultValue> state);
-    }
+    public (State, Result) Apply(IScope<State, Result> scope, State state);
 }
