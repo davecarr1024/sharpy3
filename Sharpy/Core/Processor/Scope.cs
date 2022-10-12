@@ -1,7 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 
 namespace Sharpy.Core.Processor;
-public record class Scope<State, Result> : IScope<State, Result>
+public record class Scope<State, Result> : IImmutableDictionary<string, Rule<State, Result>>
 {
     public Scope(IImmutableDictionary<string, Rule<State, Result>> rules) => Rules = rules;
 

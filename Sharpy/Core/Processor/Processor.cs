@@ -11,9 +11,9 @@ public record class Processor<State, Result> : Scope<State, Result>, Rule<State,
 
     public (State, Result) Apply(string ruleName, State state) => Apply(this, ruleName, state);
 
-    public (State, Result) Apply(IScope<State, Result> scope, State state) => Apply(scope, RootRuleName, state);
+    public (State, Result) Apply(Scope<State, Result> scope, State state) => Apply(scope, RootRuleName, state);
 
-    public (State, Result) Apply(IScope<State, Result> scope, string ruleName, State state)
+    public (State, Result) Apply(Scope<State, Result> scope, string ruleName, State state)
     {
         try
         {

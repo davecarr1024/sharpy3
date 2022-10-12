@@ -7,7 +7,7 @@ public record class Eq : Rule<ImmutableList<int>, int>
     public int Value { get; init; }
 
     public (ImmutableList<int>, int)
-        Apply(IScope<ImmutableList<int>, int> scope, ImmutableList<int> state)
+        Apply(Scope<ImmutableList<int>, int> scope, ImmutableList<int> state)
     {
         if (state.IsEmpty)
         {
