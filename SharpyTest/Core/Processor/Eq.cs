@@ -4,6 +4,8 @@ using Sharpy.Core.Processor;
 
 public record class Eq : Rule<ImmutableList<int>, int>
 {
+    public Eq(int value) => Value = value;
+
     public int Value { get; init; }
 
     public (ImmutableList<int>, int)
